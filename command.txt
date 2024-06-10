@@ -1,0 +1,26 @@
+sudo pip install torch  -f https://download.pytorch.org/whl/torch_stable.html/cpu/torch-1.9.0-cp39-cp39-linux_aarch64.whl  --break-system-packages
+
+
+$ python detect.py --weights v5lite-s.pt --source 0 --nosave  # webcam
+                            file.jpg  # image 
+                            file.mp4  # video
+                            path/  # directory
+                            path/*.jpg  # glob
+                            'https://youtu.be/NUsoVlDFqZg'  # YouTube
+                            'rtsp://example.com/media.mp4'  # RTSP, RTMP, HTTP stream
+
+
+sudo python detect.py --weights best.pt --conf 0.3 --img-size 640 --source 0 --nosave --bgr --low_red 155 --low_green 0 --low_blue 21 --high_red 255 --high_green 100 --high_blue 100
+
+HSV gambar 29.05.2024.png:
+120/105
+135/115
+254
+
+sudo python capture.py
+sudo python filter.py --input test_screenshot_29.05.2024.png
+sudo python filter_video_webcam.py 
+
+sudo python detect_HSV_signalsent.py --weights best.pt --conf 0.25 --source test_screenshot_29.05.2024.png --img_filter hsv --low_hue 120 --low_saturation 135 --low_value 254 --high_hue 179 --high_saturation 255 --high_value 255
+sudo python detect_HSV_signalsent.py --weights best.pt --conf 0.5 --source test_screenshot_29.05.2024.png --img_filter hsv --low_hue 105 --low_saturation 115 --low_value 254 --high_hue 179 --high_saturation 255 --high_value 255
+sudo python detect_HSV_signalsent.py --weights best.pt --conf 0.5 --source 0 --img_filter hsv --low_hue 105 --low_saturation 115 --low_value 254 --high_hue 179 --high_saturation 255 --high_value 255
